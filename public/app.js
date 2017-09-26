@@ -45,7 +45,7 @@ apiRequest.addEventListener("load", function(){
       document.getElementById("redditImages").innerHTML = images;
 });
 
-apiRequest.open("GET", "https://www.reddit.com/r/PrequelMemes.json");
+apiRequest.open("GET", "https://www.reddit.com/r/dankmemes.json");
 apiRequest.send();
 
 

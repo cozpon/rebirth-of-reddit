@@ -1,6 +1,9 @@
 body{
-  background: url("/assets.bg.jpg") center fixed;
+  background: url("/assets/bg.jpg") center fixed;
   background-size: cover;
+  #header{
+    background: url("/assets/logo.svg") center fixed;
+  }
 }
 
 
@@ -30,9 +33,7 @@ img {
 
 
 
-  #header{
-    background: white;
-  }
+
 
   #navigation{
     text-align: center;
