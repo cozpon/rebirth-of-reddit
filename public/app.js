@@ -2,8 +2,6 @@
 
 console.log("Sanity Check, REDDIT YO");
 
-
-
 // DOM connecting Functions (should go in separate tab)
 function titlesList(input){
   let x = document.createElement("DIV");
@@ -12,12 +10,12 @@ function titlesList(input){
   document.getElementById("redditTitle").appendChild(x);
 }
 
-// function authorList(input){
-//   let x = document.createElement("DIV");
-//   let t = document.createTextNode(input);
-//   x.appendChild(t);
-//   document.getElementById("redditAuthor").appendChild(x);
-// }
+function authorList(input){
+  let x = document.createElement("DIV");
+  let t = document.createTextNode(input);
+  x.appendChild(t);
+  document.getElementById("redditAuthor").appendChild(x);
+}
 
 function imageList(input){
   let x = document.createElement("img");
@@ -26,6 +24,7 @@ function imageList(input){
 
 
 // images from reddit
+
 
 
 let apiRequest = new XMLHttpRequest();
@@ -38,6 +37,7 @@ apiRequest.addEventListener("load", function(){
       titlesList(parsedDocument.children[i].data.title);
       titlesList(parsedDocument.children[i].data.author);
       imageList(images);
+
 
       images += '<img src="' + parsedDocument.children[i].data.url + '" />';
      }
@@ -71,15 +71,6 @@ apiRequest.send();
 
 
 // snippet of text/body of post
-
-
-
-
-
-
-
-
-
 
 
 
