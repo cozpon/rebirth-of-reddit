@@ -2,51 +2,62 @@
 
 console.log("Sanity Check, REDDIT YO");
 
-// DOM connecting Functions (should go in separate tab)
-function titlesList(input){
-  let x = document.createElement("DIV");
-  let t = document.createTextNode(input);
-  x.appendChild(t);
-  document.getElementById("redditTitle").appendChild(x);
-}
+let dankArray = [];
+let wrapperDiv = document.getElementById("wrapper");
 
-function authorList(input){
-  let x = document.createElement("DIV");
-  let t = document.createTextNode(input);
-  x.appendChild(t);
-  document.getElementById("redditAuthor").appendChild(x);
-}
-
-function imageList(input){
-  let x = document.createElement("img");
-  document.getElementById("redditTitle").appendChild(x);
-}
 
 
 // images from reddit
 
+function retrieveAPI(url) {
+  let apiRequest = new XMLHttpRequest();
+
+  apiRequest.addEventListener("load", requestListener());
+  apiRequest.open("GET", url);
+  apiRequest.send();
+}
 
 
-let apiRequest = new XMLHttpRequest();
-apiRequest.addEventListener("load", function(){
-  let parsedDocument = JSON.parse(this.responseText).data;
-  let images = "";
 
-    for(let i = 0; i < parsedDocument.children.length; i++){
-    // console.log(parsedDocument.children[i].data.url);
-      titlesList(parsedDocument.children[i].data.title);
-      titlesList(parsedDocument.children[i].data.author);
-      imageList(images);
+function requestListener() {
+  return function() {
+    let parsedDocument = JSON.parse(this.responseText).data;
+    dankArray = parsedDocument;
+    console.log(dankArray);
+    makeDivs(dankArray);
+  };
+}
 
 
-      images += '<img src="' + parsedDocument.children[i].data.url + '" />';
-     }
 
-      document.getElementById("redditImages").innerHTML = images;
-});
+function makeDivs(array){
+  for (let i = 0; i < 6; i++){
+    let innerWrapper = document.createElement("DIV");
+    let imagePreview = document.createElement("IMG");
+    let titleDiv = document.createElement("DIV");
+    let statsDiv = document.createElement("DIV");
 
-apiRequest.open("GET", "https://www.reddit.com/r/dankmemes.json");
-apiRequest.send();
+    innerWrapper.className = "innerWrapper";
+    titleDiv.className = "titleDiv";
+    imagePreview.className = "imageDiv";
+
+    imagePreview.src = array.children[i].data.url;
+    titleDiv.innerHTML = array.children[i].data.title;
+    statsDiv.innerHTML = "by " + array.children[i].data.author + " | " +
+                      new Date(array.children[i].data.created * 1000) + " | " +
+                      array.children[i].data.score + " likes, " +
+                      array.children[i].data.num_comments + " comments";
+
+    wrapperDiv.appendChild(innerWrapper);
+    innerWrapper.appendChild(imagePreview);
+    innerWrapper.appendChild(titleDiv);
+    innerWrapper.appendChild(statsDiv);
+  }
+}
+
+
+retrieveAPI("https://www.reddit.com/r/dankmemes.json");
+
 
 
 
