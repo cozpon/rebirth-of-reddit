@@ -1,33 +1,85 @@
-//jsint esversion:6
+//jshint esversion: 6
+
 console.log("Sanity Check, REDDIT YO");
 
-// grabAPI("https://www.reddit.com/r/PrequelMemes.json");
 
 
-// function reqListener () {
-//   return function() {
-//     let parsedDocument = JSON.parse(this.responseText);
-//     console.log(parsedDocument);
-//     return parsedDocument;
-//   };     //"this" refers to the instance, the "oReq.responseText"
-// }
+// DOM connecting Functions (should go in separate tab)
+function titlesList(input){
+  let x = document.createElement("DIV");
+  let t = document.createTextNode(input);
+  x.appendChild(t);
+  document.getElementById("redditTitle").appendChild(x);
+}
+function authorList(input){
+  let x = document.createElement("DIV");
+  let t = document.createTextNode(input);
+  x.appendChild(t);
+  document.getElementById("redditAuthor").appendChild(x);
+}
+function imageList(input){
+  let x = document.createElement("img");
+  document.getElementById("redditTitle").appendChild(x);
+}
 
 
-// function grabAPI(url){
-//   let apiRequest = new XMLHttpRequest();
-//   apiRequest.addEventListener("load", reqListener());
-//   apiRequest.open("GET", url);
-//   apiRequest.send();
-// }
+// images from reddit
+
+
 let apiRequest = new XMLHttpRequest();
 apiRequest.addEventListener("load", function(){
-  let parsedDocument = JSON.parse(this.responseText);
+  let parsedDocument = JSON.parse(this.responseText).data;
+  let images = "";
 
+    for(let i = 0; i < parsedDocument.children.length; i++){
+    // console.log(parsedDocument.children[i].data.url);
+      titlesList(parsedDocument.children[i].data.title);
+      titlesList(parsedDocument.children[i].data.author);
+      imageList(images);
 
-  console.log(parsedDocument.data.children["0"].data.author);
-  document.getElementById("redditTitle").innerHTML = parsedDocument.data.children["0"].data.author;
+      images += '<img src="' + parsedDocument.children[i].data.url + '" />';
+     }
 
+      document.getElementById("redditAuthor").innerHTML = images;
 });
 
 apiRequest.open("GET", "https://www.reddit.com/r/PrequelMemes.json");
 apiRequest.send();
+
+
+
+// titles under images
+
+
+
+// author of post
+
+
+
+
+// date it was posted
+
+
+
+
+// view count
+
+
+
+
+
+// snippet of text/body of post
+
+
+
+
+
+
+
+
+
+
+
+
+
+
