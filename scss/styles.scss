@@ -3,13 +3,24 @@ body{
   max-width: 500px
 }
 
-#titleAuthor {
-  max-width: 40%;
-  margin: auto;
+.wrapper{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  background-color: black
 }
 
-#redditImages {
-    max-width: 20%;
-    height: auto;
 
+
+#redditTitle{
+  background-color: red;
+  align-items: center;
+}
+
+#redditImages{
+img {
+  width: 50%;
+  height: auto;
+}
 }

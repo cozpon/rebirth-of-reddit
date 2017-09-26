@@ -11,12 +11,14 @@ function titlesList(input){
   x.appendChild(t);
   document.getElementById("redditTitle").appendChild(x);
 }
-function authorList(input){
-  let x = document.createElement("DIV");
-  let t = document.createTextNode(input);
-  x.appendChild(t);
-  document.getElementById("redditAuthor").appendChild(x);
-}
+
+// function authorList(input){
+//   let x = document.createElement("DIV");
+//   let t = document.createTextNode(input);
+//   x.appendChild(t);
+//   document.getElementById("redditAuthor").appendChild(x);
+// }
+
 function imageList(input){
   let x = document.createElement("img");
   document.getElementById("redditTitle").appendChild(x);
@@ -40,7 +42,7 @@ apiRequest.addEventListener("load", function(){
       images += '<img src="' + parsedDocument.children[i].data.url + '" />';
      }
 
-      document.getElementById("redditAuthor").innerHTML = images;
+      document.getElementById("redditImages").innerHTML = images;
 });
 
 apiRequest.open("GET", "https://www.reddit.com/r/PrequelMemes.json");
