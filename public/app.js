@@ -2,6 +2,7 @@
 
 console.log("Sanity Check, REDDIT YO");
 let dankArray = []; // storage for Reddit info
+// parente daddio
 let wrapperDiv = document.getElementById("wrapper");
 
 //
@@ -9,6 +10,12 @@ let query = {
   url: "https://www.reddit.com/r/dankmemes.json",
   method: "GET"
 };
+
+retrieveAPI(query, function(event){
+  console.log(event);
+  console.log(this);
+});
+
 
 // Get API from URL
 function retrieveAPI(query, callBack) {
@@ -19,12 +26,6 @@ function retrieveAPI(query, callBack) {
   apiRequest.open(query.method, query.url);
   apiRequest.send();
 }
-
-
-retrieveAPI(query, function(event){
-  console.log(event);
-  console.log(this);
-});
 
 // DATA PARSE + storing into
 function requestListener() {
