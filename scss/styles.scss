@@ -12,10 +12,6 @@ body{
   background-repeat: no-repeat;
 }
 
-.button{
-  cursor: pointer;
-  cursor: hand;
-}
 
 #wrapper{
   text-align: center;
@@ -84,6 +80,15 @@ body{
     font-size: 20px;
     font-family: "Oswald";
   }
+}
+
+.button{
+  cursor: pointer;
+  cursor: hand;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  color: orange;
 }
 
 
