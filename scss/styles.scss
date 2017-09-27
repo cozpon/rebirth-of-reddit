@@ -3,12 +3,15 @@ body{
   background: url("/assets/bg.jpg") center fixed;
   background-size: cover;
   font-family: 'Oswald', sans-serif;
+  background-color: white;
 }
 
 #header{
   background-color: white;
   background-repeat: no-repeat;
   top: 0px;
+  margin: -2px;
+  top: -4px;
   width:100%;
 }
 

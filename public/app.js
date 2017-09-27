@@ -45,6 +45,11 @@ randomButton.addEventListener('click', function() {
   buildSubreddit('PrequelMemes');
 });
 
+let myBoards = document.getElementById("myboards");
+myBoards.addEventListener("click", function(){
+  buildSubreddit('SurrealMemes');
+});
+
 //subreddit is just name of subreddit
 function buildSubreddit(subreddit){
   //variables
@@ -58,7 +63,6 @@ function buildSubreddit(subreddit){
 
 
 function makeDivs(array){
-  console.log(array, "array");
   wrapperDiv.innerHTML = "";
   for (let i = 0; i < array.length; i++){
     // creating DIVS for DOM attachment.
@@ -81,7 +85,6 @@ function makeDivs(array){
                       array[i].data.num_comments + " comments";
 
     // ORGANIZING Data in DIVS in DOM
-
     innerWrapper.appendChild(imagePreview);
     innerWrapper.appendChild(titleDiv);
     innerWrapper.appendChild(statsDiv);
