@@ -47,9 +47,13 @@ randomButton.addEventListener('click', function() {
 
 let myBoards = document.getElementById("myboards");
 myBoards.addEventListener("click", function(){
-  buildSubreddit('SurrealMemes');
+  buildSubreddit('wholesomememes');
 });
 
+let getApp = document.getElementById("getapp");
+getApp.addEventListener("click", function(){
+  buildSubreddit('pics');
+});
 
 
 //subreddit is just name of subreddit
@@ -66,7 +70,7 @@ function buildSubreddit(subreddit){
 
 function makeDivs(array){
   wrapperDiv.innerHTML = "";
-  for (let i = 0; i < array.length; i++){
+  for (let i = 2; i < array.length; i++){
     // creating DIVS for DOM attachment.
     let innerWrapper = document.createElement("DIV");
     let imagePreview = document.createElement("IMG");
@@ -79,7 +83,7 @@ function makeDivs(array){
     imagePreview.className = "imageDiv";
 
     // appending REDDIT data to DOM
-    imagePreview.src = array[i].data.url;
+    imagePreview.src = array[i].data.preview.images[0].source.url;
     titleDiv.innerHTML = array[i].data.title;
     statsDiv.innerHTML = "by " + array[i].data.author + " | " +
                       new Date(array[i].data.created * 1000) + " | " +

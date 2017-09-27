@@ -12,6 +12,10 @@ body{
   background-repeat: no-repeat;
 }
 
+.button{
+  cursor: pointer;
+  cursor: hand;
+}
 
 #wrapper{
   text-align: center;
@@ -78,7 +82,7 @@ body{
   .button{
     display: inline;
     font-size: 20px;
-    font-family: "Lato Regular";
+    font-family: "Oswald";
   }
 }
 
