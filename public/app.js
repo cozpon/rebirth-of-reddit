@@ -50,6 +50,8 @@ myBoards.addEventListener("click", function(){
   buildSubreddit('SurrealMemes');
 });
 
+
+
 //subreddit is just name of subreddit
 function buildSubreddit(subreddit){
   //variables

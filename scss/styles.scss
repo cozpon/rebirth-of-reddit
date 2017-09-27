@@ -10,9 +10,6 @@ body{
 #header{
   background-color: white;
   background-repeat: no-repeat;
-  top: 0px;
-  width:auto;
-
 }
 
 
@@ -55,10 +52,9 @@ body{
     grid-template-columns: 1fr 1fr;
     width: inherit;
     min-width: 500px;
-    max-width: 600px;
+    max-width: 680px;
     #navigation{
     width: inherit;
-
     }
   }
 }
@@ -71,17 +67,18 @@ body{
     width:100%;
     min-width: 350px;
     height: 45px;
+
   }
   box-shadow: 1px 1px 5px #3A3A3C;
-  font-family: "Lato Regular", sans-serif;
+
   text-align: center;
-  font-size: 20px;
   color: lightgrey;
-  font-family: 'Oswald', sans-serif;
   width: inherit;
   min-width: 350px;
   .button{
-    display: inline-block;
+    display: inline;
+    font-size: 20px;
+    font-family: "Lato Regular";
   }
 }
 
@@ -95,6 +92,7 @@ body{
   }
   #navigation{
   font-size: 12px;
+
   }
 }
 
