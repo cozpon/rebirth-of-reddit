@@ -12,7 +12,9 @@ body{
   background-repeat: no-repeat;
 }
 
-
+.bottomHeader{
+  visibility: hidden;
+};
 
 #wrapper{
   text-align: center;
@@ -106,14 +108,15 @@ body{
 
   }
   #navigation{
-  font-size: 12px;
+    font-size: 12px;
   }
   .bottomHeader{
+    visibility: visible;
     text-align: center;
     background-color: #3A3A3C;
     width:100%;
     min-width: 350px;
     height: 45px;
-}
+  }
 }
 
