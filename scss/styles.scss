@@ -1,0 +1,122 @@
+
+body{
+  background: url("/assets/bg.jpg") center fixed;
+  background-size: cover;
+  font-family: 'Oswald', sans-serif;
+  background-color: white;
+  margin: 0;
+}
+
+#header{
+  background-color: white;
+  background-repeat: no-repeat;
+}
+
+.bottomHeader{
+  visibility: hidden;
+};
+
+#wrapper{
+  text-align: center;
+  block: inline;
+  font-family: "Oswald";
+  font-size: 10px;
+  font-weight: lighter;
+  margin: auto;
+  height: 90%;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .innerWrapper{
+    text-align: left;
+    margin: 10px 10px 10px 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    // border: 1px solid black;
+    box-shadow: 1px 1px 5px #3A3A3C;
+    text-overflow: ellipsis;
+
+    .titleDiv{
+      font-family: "Lato Regular", sans-serif;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    img{
+      float: inline-block;
+      position: relative;
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+    }
+  }
+  .innerWrapper:hover{
+    box-shadow:inset 0px 0px 0px 5px orange;
+
+  }
+
+  @media only screen and (min-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+    width: inherit;
+    min-width: 500px;
+    max-width: 680px;
+    #navigation{
+    width: inherit;
+    }
+  }
+}
+
+
+
+#navigation{
+  .subHeader{
+    background-color: #3A3A3C;
+    width:100%;
+    min-width: 350px;
+    height: 45px;
+
+  }
+  box-shadow: 1px 1px 5px #3A3A3C;
+
+  text-align: center;
+  color: lightgrey;
+  width: inherit;
+  min-width: 350px;
+  .button{
+    display: inline;
+    font-size: 20px;
+    font-family: "Oswald";
+  }
+}
+
+.button{
+  cursor: pointer;
+  cursor: hand;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  color: orange;
+}
+
+
+
+@media only screen and (min-width: 550px) {
+  #header{
+    text-align: center;
+    background-image: url("/assets/header_bg.svg");
+    background-position: center;
+
+  }
+  #navigation{
+    font-size: 12px;
+  }
+  .bottomHeader{
+    visibility: visible;
+    text-align: center;
+    background-color: #3A3A3C;
+    width:100%;
+    min-width: 350px;
+    height: 45px;
+  }
+}
+
